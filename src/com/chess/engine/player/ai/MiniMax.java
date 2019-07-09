@@ -7,10 +7,12 @@ import com.chess.engine.player.MoveTransition;
 public class MiniMax implements MoveStrategy {
 
     private final BoardEvaluator boardEvaluator;
+    private final int searchDepth;
     private long boardsEvaluated;
 
-    public MiniMax(){
-        this.boardEvaluator = null;
+    public MiniMax(final int searchDepth){
+        this.boardEvaluator = new StandardBoardEvaluator();
+        this.searchDepth = searchDepth;
         this.boardsEvaluated = 0;
     }
 
@@ -25,7 +27,7 @@ public class MiniMax implements MoveStrategy {
 //    }
 
     @Override
-    public Move execute(Board board, int depth) {
+    public Move execute(Board board) {
 
         final long startTime = System.currentTimeMillis();
 
@@ -35,7 +37,7 @@ public class MiniMax implements MoveStrategy {
         int lowestSeenValue = Integer.MAX_VALUE;
         int currentValue;
 
-        System.out.println(board.currentPlayer() + " THINKING with depth = " + depth);
+        System.out.println(board.currentPlayer() + " THINKING with depth = " + searchDepth);
 
         int numMoves = board.currentPlayer().getLegalMoves().size();
 
@@ -45,8 +47,8 @@ public class MiniMax implements MoveStrategy {
             if(moveTransition.getMoveStatus().isDone()){
 
                 currentValue = board.currentPlayer().getAlliance().isWhite() ?
-                        min(moveTransition.getTransitionboard(), depth -1) :
-                        max(moveTransition.getTransitionboard(), depth -1);
+                        min(moveTransition.getTransitionboard(), searchDepth -1) :
+                        max(moveTransition.getTransitionboard(), searchDepth -1);
 
                 if(board.currentPlayer().getAlliance().isWhite() && currentValue >= highestSeenValue){
                     highestSeenValue = currentValue;
@@ -64,10 +66,15 @@ public class MiniMax implements MoveStrategy {
         return bestMove;
     }
 
+    private static boolean isEndGameScenario(final Board board){
+        return board.currentPlayer().isInCheck() ||
+               board.currentPlayer().isInCheckMate();
+    }
+
     public int min(final Board board,
                    final int depth){
 
-        if(depth == 0 /* || game over*/){
+        if(depth == 0 || isEndGameScenario(board)){
             this.boardsEvaluated++;
             return this.boardEvaluator.evaluate(board, depth);
         }

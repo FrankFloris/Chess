@@ -57,6 +57,8 @@ public class TestBoard {
 //    assertFalse(BoardUtils.isThreatenedBoardImmediate(board));
 //    assertEquals(StandardBoardEvaluator.get().evaluate(board, 0), 0);
 //    assertEquals(board.getPiece(35), null);
-}
+    }
+
+//    @Test
 
 }
