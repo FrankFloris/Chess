@@ -10,6 +10,7 @@ public final class StandardBoardEvaluator implements BoardEvaluator {
     private static final int CHECKMATE_BONUS = 10000;
     private static final int DEPTH_BONUS = 100;
     private static final int CASTLE_BONUS = 60;
+    private static final int TWO_BISHOP_BONUS = 50;
 
     @Override
     public int evaluate(Board board, int depth) {
@@ -29,10 +30,14 @@ public final class StandardBoardEvaluator implements BoardEvaluator {
 
     private static int pieceValue(final Player player){
         int pieceValueScore = 0;
+        int numBishops = 0;
         for(final Piece piece : player.getActivePieces()){
             pieceValueScore += piece.getPieceValue();
+            if (piece.getPieceType().isBishop()){
+                numBishops++;
+            }
         }
-        return pieceValueScore;
+        return pieceValueScore + (numBishops == 2 ? TWO_BISHOP_BONUS : 0);
     }
 
     private static int mobility(final Player player){
@@ -54,7 +59,4 @@ public final class StandardBoardEvaluator implements BoardEvaluator {
     private static int castled(final Player player){
         return player.isCastled() ? CASTLE_BONUS : 0;
     }
-
-
-
 }

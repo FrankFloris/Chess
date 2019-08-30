@@ -1,7 +1,7 @@
 package com.chess.gui;
 
 import com.chess.engine.board.Board;
-import com.chess.engine.board.Move;
+import com.chess.engine.board.moves.Move;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

@@ -1,18 +1,16 @@
 package com.chess.gui;
 
-import com.chess.engine.board.Move;
+import com.chess.engine.board.moves.Move;
 import com.chess.engine.pieces.Piece;
 import com.google.common.primitives.Ints;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.border.EtchedBorder;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;

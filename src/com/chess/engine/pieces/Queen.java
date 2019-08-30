@@ -1,17 +1,16 @@
 package com.chess.engine.pieces;
 
 import com.chess.engine.Alliance;
-import com.chess.engine.board.Board;
-import com.chess.engine.board.BoardUtils;
-import com.chess.engine.board.Move;
-import com.chess.engine.board.Tile;
+import com.chess.engine.board.*;
+import com.chess.engine.board.moves.MajorAttackMove;
+import com.chess.engine.board.moves.MajorMove;
+import com.chess.engine.board.moves.Move;
 import com.google.common.collect.ImmutableList;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import static com.chess.engine.board.Move.*;
 import static com.chess.engine.pieces.Piece.PieceType.*;
 
 public class Queen extends Piece {

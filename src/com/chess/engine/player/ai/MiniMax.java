@@ -1,7 +1,7 @@
 package com.chess.engine.player.ai;
 
 import com.chess.engine.board.Board;
-import com.chess.engine.board.Move;
+import com.chess.engine.board.moves.Move;
 import com.chess.engine.player.MoveTransition;
 
 public class MiniMax implements MoveStrategy {
@@ -9,6 +9,7 @@ public class MiniMax implements MoveStrategy {
     private final BoardEvaluator boardEvaluator;
     private final int searchDepth;
     private long boardsEvaluated;
+
 
     public MiniMax(final int searchDepth){
         this.boardEvaluator = new StandardBoardEvaluator();

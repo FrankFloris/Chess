@@ -2,7 +2,7 @@ package com.chess.engine.player;
 
 import com.chess.engine.Alliance;
 import com.chess.engine.board.Board;
-import com.chess.engine.board.Move;
+import com.chess.engine.board.moves.Move;
 import com.chess.engine.pieces.King;
 import com.chess.engine.pieces.Piece;
 import com.google.common.collect.ImmutableList;
@@ -87,11 +87,8 @@ public abstract class Player {
                 return true;
             }
         }
-
         return false;
     }
-
-
 
     public boolean isCastled(){
         return false;

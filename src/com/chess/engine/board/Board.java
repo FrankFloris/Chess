@@ -1,6 +1,7 @@
 package com.chess.engine.board;
 
 import com.chess.engine.Alliance;
+import com.chess.engine.board.moves.Move;
 import com.chess.engine.pieces.*;
 import com.chess.engine.player.BlackPlayer;
 import com.chess.engine.player.Player;
@@ -59,7 +60,6 @@ public class Board {
         for (final Piece piece : pieces){
             legalMoves.addAll(piece.calculateLegalMoves(this));
         }
-
         return ImmutableList.copyOf(legalMoves);
     }
 
@@ -91,14 +91,14 @@ public class Board {
                                                     final Alliance alliance) {
         final List<Piece> activePieces = new ArrayList<>();
 
-        for (final Tile tile : gameboard){
-            if(tile.isTileOccupied()){
-                final Piece piece = tile.getPiece();
+        gameboard.forEach(tile -> {
+            if (tile.isTileOccupied()){
+            final Piece piece = tile.getPiece();
                 if (piece.getPieceAlliance() == alliance){
                     activePieces.add(piece);
                 }
-            }
-        }
+             }
+        });
         return ImmutableList.copyOf(activePieces);
     }
 

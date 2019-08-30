@@ -2,7 +2,7 @@ package com.chess.gui;
 
 import com.chess.engine.board.Board;
 import com.chess.engine.board.BoardUtils;
-import com.chess.engine.board.Move;
+import com.chess.engine.board.moves.Move;
 import com.chess.engine.board.Tile;
 import com.chess.engine.pieces.Piece;
 import com.chess.engine.player.MoveTransition;
@@ -12,12 +12,8 @@ import com.google.common.collect.Lists;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -61,7 +57,6 @@ public class Table extends Observable {
     private Table(){
         this.gameFrame = new JFrame("JavaChess");
         this.gameFrame.setLayout(new BorderLayout());
-
         final JMenuBar tableMenuBar = createTableMenuBar();
         this.gameFrame.setJMenuBar(tableMenuBar);
         this.gameFrame.setSize(OUTER_FRAME_DIMENSION);
@@ -71,7 +66,9 @@ public class Table extends Observable {
         this.boardPanel = new BoardPanel();
         this.moveLog = new MoveLog();
         this.addObserver(new TableGameAIWatcher());
+        
         this.gameSetup = new GameSetup(this.gameFrame, true);
+        setupWindowListeners();
 
         this.boardDirection = BoardDirection.NORMAL;
         this.highlightLegalMoves = false;
@@ -80,6 +77,24 @@ public class Table extends Observable {
         this.gameFrame.add(this.boardPanel, BorderLayout.CENTER);
         this.gameFrame.add(this.gameHistoryPanel, BorderLayout.EAST);
         this.gameFrame.setVisible(true);
+    }
+
+    private void setupWindowListeners() {
+        this.gameFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        this.gameFrame.addWindowListener(new WindowAdapter(){
+            public void windowClosing(WindowEvent e){
+                int i = JOptionPane.showConfirmDialog(null, "Are you sure you want to quit?" + "\n" + "Unless you saved, your game will be lost!");
+                if (i == 0){
+                    System.exit(0);
+                }
+            }
+        });
+        this.gameFrame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+                Table.get().getGameSetup().setVisible(true);
+            }
+        });
     }
 
     public static Table get(){
@@ -165,12 +180,9 @@ public class Table extends Observable {
         final JMenu optionsMenu = new JMenu("Options");
 
         final JMenuItem setupGameMenuItem = new JMenuItem("Setup Game");
-        setupGameMenuItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        setupGameMenuItem.addActionListener(e -> {
                 Table.get().getGameSetup().promptUser();
                 Table.get().setupUpdate(Table.get().getGameSetup());
-            }
         });
         optionsMenu.add(setupGameMenuItem);
 //        optionsMenu.addSeparator();
@@ -243,14 +255,12 @@ public class Table extends Observable {
 
     private static class AIThinkTank extends SwingWorker<Move, String> {
 
-        private AIThinkTank(){
-
-        }
+        private AIThinkTank(){}
 
         @Override
         protected Move doInBackground() throws Exception {
 
-            final MoveStrategy miniMax = new MiniMax(4);
+            final MoveStrategy miniMax = new MiniMax(Table.get().getGameSetup().getSearchDepth());
             final Move bestMove = miniMax.execute(Table.get().getGameBoard());
             return bestMove;
         }
@@ -320,10 +330,10 @@ public class Table extends Observable {
 
         public void drawBoard(final Board board){
             removeAll();
-            for(final TilePanel tilePanel : boardDirection.traverse(boardTiles)){
+            boardDirection.traverse(boardTiles).forEach(tilePanel -> {
                 tilePanel.drawTile(board);
                 add(tilePanel);
-            }
+            });
             validate();
             repaint();
         }
@@ -423,22 +433,18 @@ public class Table extends Observable {
 
                 @Override
                 public void mousePressed(final MouseEvent e) {
-
                 }
 
                 @Override
                 public void mouseReleased(final MouseEvent e) {
-
                 }
 
                 @Override
                 public void mouseEntered(final MouseEvent e) {
-
                 }
 
                 @Override
                 public void mouseExited(final MouseEvent e) {
-
                 }
             });
             validate();
