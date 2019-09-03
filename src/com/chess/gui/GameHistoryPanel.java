@@ -2,6 +2,7 @@ package com.chess.gui;
 
 import com.chess.engine.board.Board;
 import com.chess.engine.board.moves.Move;
+import com.chess.gui.table.MoveLog;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -11,15 +12,13 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.chess.gui.Table.*;
-
 public class GameHistoryPanel extends JPanel {
 
     private final DataModel model;
     private final JScrollPane scrollPane;
     private static final Dimension HISTORY_PANEL_DIMENSION = new Dimension(100,400);
 
-    GameHistoryPanel(){
+    public GameHistoryPanel(){
         this.setLayout(new BorderLayout());
         this.model = new DataModel();
         final JTable table = new JTable(model);
@@ -31,7 +30,7 @@ public class GameHistoryPanel extends JPanel {
         this.setVisible(true);
     }
 
-    void redo(final Board board, final MoveLog movehistory){
+    public void redo(final Board board, final MoveLog movehistory){
 
 
         int currentRow = 0;

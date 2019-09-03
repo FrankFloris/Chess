@@ -2,9 +2,8 @@ package com.chess.engine.player;
 
 import com.chess.engine.Alliance;
 import com.chess.engine.board.Board;
+import com.chess.engine.board.moves.CastleMove;
 import com.chess.engine.board.moves.Move;
-import com.chess.engine.board.moves.KingSideCastleMove;
-import com.chess.engine.board.moves.QueenSideCastleMove;
 import com.chess.engine.board.Tile;
 import com.chess.engine.pieces.Piece;
 import com.chess.engine.pieces.Rook;
@@ -53,7 +52,7 @@ public class WhitePlayer extends Player{
                     rookTile.getPiece().getPieceType().isRook()){
                     if(Player.calculateAttacksOnTile(61,opponentsLegals).isEmpty() &&
                        Player.calculateAttacksOnTile(62, opponentsLegals).isEmpty()){
-                        kingCastles.add(new KingSideCastleMove(this.board,
+                        kingCastles.add(new CastleMove.KingSideCastleMove(this.board,
                                                                     this.playerKing,
                                                                     62,
                                                                     (Rook)rookTile.getPiece(),
@@ -71,7 +70,7 @@ public class WhitePlayer extends Player{
                     rookTile.getPiece().getPieceType().isRook()){
                     if(Player.calculateAttacksOnTile(58, opponentsLegals).isEmpty() &&
                        Player.calculateAttacksOnTile(59, opponentsLegals).isEmpty()){
-                        kingCastles.add(new QueenSideCastleMove(this.board,
+                        kingCastles.add(new CastleMove.QueenSideCastleMove(this.board,
                                 this.playerKing,
                                 58,
                                 (Rook)rookTile.getPiece(),

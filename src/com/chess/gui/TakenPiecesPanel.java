@@ -2,6 +2,7 @@ package com.chess.gui;
 
 import com.chess.engine.board.moves.Move;
 import com.chess.engine.pieces.Piece;
+import com.chess.gui.table.MoveLog;
 import com.google.common.primitives.Ints;
 
 import javax.imageio.ImageIO;
@@ -15,8 +16,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
-import static com.chess.gui.Table.*;
 
 public class TakenPiecesPanel extends JPanel {
 

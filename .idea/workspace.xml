@@ -2,7 +2,53 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8698022-f270-4af2-aca1-9b5e5ef2f953" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/chess/gui/table/AIThinkTank.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/chess/gui/table/BoardPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/chess/gui/table/MoveLog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/chess/gui/table/TableGameAIWatcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/chess/gui/table/TilePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/JavaChess.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaChess/com/chess/JavaChess.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/engine/board/moves/CastleMove.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaChess/com/chess/engine/board/moves/CastleMove.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/engine/board/moves/KingSideCastleMove.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/engine/board/moves/QueenSideCastleMove.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/engine/player/BlackPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaChess/com/chess/engine/player/BlackPlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/engine/player/WhitePlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaChess/com/chess/engine/player/WhitePlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/GameHistoryPanel$DataModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/GameHistoryPanel$DataModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/GameHistoryPanel$Row.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/GameHistoryPanel$Row.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/GameHistoryPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/GameHistoryPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/GameSetup.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/GameSetup.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/Table$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/Table$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/Table$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/Table$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/Table$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/Table$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/Table$AIThinkTank.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/Table$BoardDirection$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/Table$BoardDirection$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/Table$BoardDirection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/Table$BoardPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/Table$MoveLog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/Table$PlayerType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/Table$TableGameAIWatcher.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/Table$TilePanel$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/Table$TilePanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/Table$TilePanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/Table.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/TakenPiecesPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/TakenPiecesPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/TakenPiecesPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/TakenPiecesPanel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/TakenPiecesPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaChess/com/chess/gui/TakenPiecesPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/chess/JavaChess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chess/JavaChess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/chess/engine/board/moves/CastleMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chess/engine/board/moves/CastleMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/chess/engine/board/moves/KingSideCastleMove.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/chess/engine/board/moves/QueenSideCastleMove.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/chess/engine/player/BlackPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chess/engine/player/BlackPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/chess/engine/player/WhitePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chess/engine/player/WhitePlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/chess/gui/GameHistoryPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chess/gui/GameHistoryPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/chess/gui/GameSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chess/gui/GameSetup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/chess/gui/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chess/gui/table/Table.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/chess/gui/TakenPiecesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chess/gui/TakenPiecesPanel.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +85,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Arquillian JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/BlackWidow-Chess-b8adcb454c5727a482bd52729428b3e67aaa84e0/BlackWidow-Chess-b8adcb454c5727a482bd52729428b3e67aaa84e0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -55,6 +101,7 @@
       <recent name="com.tests.chess.engine.board" />
     </key>
     <key name="MoveInnerDialog.RECENTS_KEY">
+      <recent name="com.chess.gui.table" />
       <recent name="com.chess.engine.board" />
     </key>
     <key name="MoveMembersDialog.RECENTS_KEY">

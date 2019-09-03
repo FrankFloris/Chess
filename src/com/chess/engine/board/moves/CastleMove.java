@@ -4,13 +4,13 @@ import com.chess.engine.board.Board;
 import com.chess.engine.pieces.Piece;
 import com.chess.engine.pieces.Rook;
 
-abstract class CastleMove extends Move{
+public abstract class CastleMove extends Move{
 
-    protected final Rook castleRook;
-    protected final int castleRookStartPosition;
-    protected final int castleRookDestination;
+    private final Rook castleRook;
+    private final int castleRookStartPosition;
+    private final int castleRookDestination;
 
-    public CastleMove(final Board board,
+    private CastleMove(final Board board,
                       final Piece movedPiece,
                       final int destinationCoordinate,
                       final Rook castleRook,
@@ -22,7 +22,7 @@ abstract class CastleMove extends Move{
         this.castleRookDestination = castleRookDestination;
     }
 
-    public Rook getCastleRook(){
+    private Rook getCastleRook(){
         return this.castleRook;
     }
 
@@ -72,4 +72,49 @@ abstract class CastleMove extends Move{
     }
 
 
+    public static final class KingSideCastleMove extends CastleMove{
+
+        public KingSideCastleMove(final Board board,
+                                  final Piece movedPiece,
+                                  final int destinationCoordinate,
+                                  final Rook castleRook,
+                                  final int castleRookStartPosition,
+                                  final int castleRookDestination) {
+            super(board, movedPiece, destinationCoordinate, castleRook, castleRookStartPosition, castleRookDestination);
+        }
+
+        @Override
+        public boolean equals(final Object other){
+                return this == other || other instanceof KingSideCastleMove && super.equals(other);
+        }
+
+        @Override
+        public String toString(){
+            return "0-0";
+        }
+
+    }
+
+    public static final class QueenSideCastleMove extends CastleMove{
+
+        public QueenSideCastleMove(final Board board,
+                                   final Piece movedPiece,
+                                   final int destinationCoordinate,
+                                   final Rook castleRook,
+                                   final int castleRookStartPosition,
+                                   final int castleRookDestination) {
+            super(board, movedPiece, destinationCoordinate, castleRook, castleRookStartPosition, castleRookDestination);
+        }
+
+        @Override
+        public boolean equals(final Object other){
+            return this == other || other instanceof QueenSideCastleMove && super.equals(other);
+        }
+
+        @Override
+        public String toString(){
+            return "0-0-0";
+        }
+
+    }
 }

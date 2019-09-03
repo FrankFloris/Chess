@@ -6,9 +6,9 @@ import com.chess.engine.player.Player;
 import javax.swing.*;
 import java.awt.*;
 
-import static com.chess.gui.Table.*;
+import static com.chess.gui.table.Table.*;
 
-class GameSetup extends JDialog {
+public class GameSetup extends JDialog {
 
     private PlayerType whitePlayerType = PlayerType.COMPUTER;
     private PlayerType blackPlayerType = PlayerType.COMPUTER;
@@ -20,8 +20,8 @@ class GameSetup extends JDialog {
     private static final String COMPUTER_TEXT = "Computer";
     private final JPanel myPanel = new JPanel(new GridLayout(0,1));
 
-    GameSetup(final JFrame frame,
-              final boolean modal){
+    public GameSetup(final JFrame frame,
+                     final boolean modal){
         super(frame, modal);
         whitePlayerSetup();
         blackPlayerSetup();
@@ -83,12 +83,12 @@ class GameSetup extends JDialog {
     }
 
 
-    void promptUser(){
+    public void promptUser(){
         setVisible(true);
         repaint();
     }
 
-    boolean isAIPlayer(final Player player){
+    public boolean isAIPlayer(final Player player){
         if(player.getAlliance() == Alliance.WHITE){
             return getWhitePlayerType() == PlayerType.COMPUTER;
         }
@@ -114,7 +114,7 @@ class GameSetup extends JDialog {
         return spinner;
     }
 
-    int getSearchDepth(){
+    public int getSearchDepth(){
         return (Integer)this.searchDepthSpinner.getValue();
     }
 
